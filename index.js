@@ -8,8 +8,7 @@ const transactions = require("./routes/transactions");
 const suppliers = require("./routes/supplier");
 const customers = require("./routes/customer");
 const goods = require("./routes/goods");
-const customers = require("./routes/customers");
-const employees = require("./routes/employees");
+const employees = require("./routes/employee");
 /* import errorGandler */
 const errorHandler = require("./middlewares/errorHandler");
 
@@ -33,7 +32,6 @@ app.use("/transactions", transactions);
 app.use("/suppliers", suppliers);
 app.use("/customers", customers);
 app.use("/goods", goods);
-app.use("/customers", customers);
 app.use("/employees", employees);
 
 app.use(errorHandler);
