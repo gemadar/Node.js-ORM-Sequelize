@@ -5,7 +5,7 @@ exports.createOrUpdateCustomerValidator = async (req, res, next) => {
   try {
     const errorMessages = [];
 
-    if (validator.isEmpty(req.body.name)) {
+    if (!validator.isEmpty(req.body.name)) {
       errorMessages.push("Name cannot be empty!");
     }
 

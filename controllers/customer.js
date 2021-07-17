@@ -3,6 +3,21 @@ const { customer } = require("../models");
 class Customer {
   async createCustomer(req, res, next) {
     try {
+      //   create customer
+      const newData = await customer.create(req.body);
+
+      // send back last transaction
+      const data = await customer.findOne({
+        where: { id: newData.id },
+      });
+
+      res.status(201).json({ data });
+    } catch (error) {
+      next(error);
+    }
+  }
+  /* async createCustomer(req, res, next) {
+    try {
       const newCustomer = await customer.create(req.body);
 
       const dataCustomers = await customer.findOne({
@@ -14,7 +29,7 @@ class Customer {
     } catch (error) {
       next(error);
     }
-  }
+  } */
 
   async getCustomer(req, res, next) {
     try {
